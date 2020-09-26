@@ -6,7 +6,6 @@ const initialState = {
     currentUser: null,
 };
 
-
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case "LOADING":
@@ -16,7 +15,7 @@ const reducer = (state = initialState, action) => {
             };
         case "SET_AUTHORIZED":
             return {
-                ...state,
+                ...state
                 isLoggedIn: true,
                 isLoading: false,
                 currentUser: action.payload,
@@ -31,8 +30,6 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 };
-
-
 
 export const CurrentUserContext = createContext();
 

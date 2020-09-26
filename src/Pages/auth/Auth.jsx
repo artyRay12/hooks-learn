@@ -19,9 +19,7 @@ const Auth = (props) => {
     const [isSuccessfullSubmit, setIsSuccessfullSubmit] = useState(false);
     const [{ error, response, isLoading }, doFetch] = useFetch(apiUrl);
     const [, setToken] = useLocalStorage("token");
-
     const [, dispath] = useContext(CurrentUserContext);
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,9 +39,7 @@ const Auth = (props) => {
 
         setToken(response.user.token);
         setIsSuccessfullSubmit(true);
-        debugger
-        dispath({type: 'SET_AUTHORIZED', payload: response.user})
-
+        dispath({ type: "SET_AUTHORIZED", payload: response.user });
     }, [response, setToken, dispath]);
 
     if (isSuccessfullSubmit) return <Redirect to="/" />;
